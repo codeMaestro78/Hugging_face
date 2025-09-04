@@ -9,10 +9,9 @@ from semantic_search_engine import SemanticSearchEngine
 import json
 from typing import List, Dict
 
-
 def create_sample_datasets():
-    """Create different sample datasets for demonstration"""
-    
+    """Create expanded sample datasets for demonstration"""
+
     # Technology & Programming Dataset
     tech_docs = [
         "Python is a high-level programming language known for its simplicity and readability.",
@@ -29,9 +28,14 @@ def create_sample_datasets():
         "Artificial intelligence aims to create machines that can perform tasks requiring human intelligence.",
         "Blockchain technology creates immutable ledgers for secure and transparent transactions.",
         "React is a JavaScript library for building user interfaces with reusable components.",
-        "TensorFlow is an open-source framework for machine learning and deep learning applications."
+        "TensorFlow is an open-source framework for machine learning and deep learning applications.",
+        "Edge computing brings computation and data storage closer to the location where it is needed.",
+        "Internet of Things (IoT) connects physical devices to the internet for remote monitoring and control.",
+        "Quantum computing uses qubits to perform computations far faster than classical computers.",
+        "Rust is a systems programming language focused on safety and performance.",
+        "DevOps practices integrate software development and IT operations for faster delivery."
     ]
-    
+
     # Science & Research Dataset
     science_docs = [
         "Quantum mechanics describes the behavior of matter and energy at the atomic scale.",
@@ -48,9 +52,14 @@ def create_sample_datasets():
         "The human brain contains billions of neurons that process information and control behavior.",
         "Genetic engineering allows scientists to modify the DNA of living organisms.",
         "Ocean currents play a crucial role in regulating Earth's climate and weather patterns.",
-        "Antibiotics are medications that kill or inhibit the growth of bacteria."
+        "Antibiotics are medications that kill or inhibit the growth of bacteria.",
+        "Neuroscience studies the structure and function of the nervous system.",
+        "Astrophysics explores the physics of celestial objects and phenomena.",
+        "Microbiology examines microscopic organisms such as bacteria and viruses.",
+        "Synthetic biology combines biology and engineering to design new biological systems.",
+        "Geology studies the Earth's physical structure, composition, and processes."
     ]
-    
+
     # Business & Economics Dataset
     business_docs = [
         "Supply chain management coordinates the flow of goods from suppliers to customers.",
@@ -67,14 +76,50 @@ def create_sample_datasets():
         "Lean manufacturing eliminates waste and improves efficiency in production processes.",
         "Brand management builds and maintains the reputation and image of products or companies.",
         "Market research analyzes consumer behavior and competitive landscapes.",
-        "Corporate governance ensures companies operate ethically and transparently."
+        "Corporate governance ensures companies operate ethically and transparently.",
+        "Behavioral economics studies how psychological factors influence economic decisions.",
+        "Financial planning helps individuals and organizations manage their assets and expenses.",
+        "International trade involves the exchange of goods and services between countries.",
+        "Innovation management fosters creativity and the development of new products and services.",
+        "Risk management identifies, assesses, and mitigates potential business risks."
     ]
-    
+
+    # Additional Domain: Health & Medicine
+    health_docs = [
+        "Nutrition plays a vital role in maintaining overall health and well-being.",
+        "Cardiovascular diseases affect the heart and blood vessels, often linked to lifestyle.",
+        "Mental health includes emotional, psychological, and social well-being.",
+        "Exercise improves physical fitness, strengthens muscles, and enhances mood.",
+        "Immunology studies the immune system and how it protects the body from diseases.",
+        "Pharmacology focuses on the effects and uses of drugs in medicine.",
+        "Epidemiology analyzes patterns, causes, and effects of health and disease conditions.",
+        "Medical imaging techniques like MRI and CT scans help diagnose health issues.",
+        "Genomics studies the complete set of DNA in an organism and its functions.",
+        "Telemedicine allows healthcare delivery remotely using digital communication technology."
+    ]
+
+    # Additional Domain: Arts & Literature
+    arts_docs = [
+        "Shakespeare is considered one of the greatest playwrights in English literature.",
+        "Renaissance art emphasized humanism, perspective, and classical themes.",
+        "Modernist literature broke traditional forms and explored new narrative techniques.",
+        "Music theory analyzes the structure, harmony, and composition of music.",
+        "Photography captures moments through light and composition.",
+        "Cinema combines storytelling, visuals, and sound to create immersive experiences.",
+        "Sculpture is a three-dimensional art form using materials like stone, metal, or clay.",
+        "Poetry expresses emotions and ideas through rhythmic and aesthetic language.",
+        "Graphic design communicates ideas visually using typography, imagery, and color.",
+        "Architecture combines art and engineering to design functional and aesthetic structures."
+    ]
+
     return {
         "technology": tech_docs,
         "science": science_docs,
-        "business": business_docs
+        "business": business_docs,
+        "health": health_docs,
+        "arts": arts_docs
     }
+
 
 
 def demo_basic_semantic_search():
@@ -97,28 +142,70 @@ def demo_basic_semantic_search():
     engine.add_documents(tech_docs, metadata=metadata)
     
     # Sample queries with explanations
+    # Sample queries with explanations
     queries = [
-        {
-            "query": "artificial intelligence and machine learning",
-            "explanation": "Looking for AI/ML related content"
-        },
-        {
-            "query": "web development and frontend frameworks",
-            "explanation": "Searching for web development topics"
-        },
-        {
-            "query": "software deployment and containers",
-            "explanation": "Finding deployment and containerization info"
-        },
-        {
-            "query": "data storage and databases",
-            "explanation": "Looking for database-related content"
-        },
-        {
-            "query": "security and protection systems",
-            "explanation": "Searching for cybersecurity topics"
-        }
-    ]
+    {
+        "query": "artificial intelligence and machine learning",
+        "explanation": "Looking for AI/ML related content"
+    },
+    {
+        "query": "web development and frontend frameworks",
+        "explanation": "Searching for web development topics"
+    },
+    {
+        "query": "software deployment and containers",
+        "explanation": "Finding deployment and containerization info"
+    },
+    {
+        "query": "data storage and databases",
+        "explanation": "Looking for database-related content"
+    },
+    {
+        "query": "security and protection systems",
+        "explanation": "Searching for cybersecurity topics"
+    },
+    {
+        "query": "cloud computing platforms and services",
+        "explanation": "Exploring cloud infrastructure and solutions"
+    },
+    {
+        "query": "deep learning and neural networks",
+        "explanation": "Finding content on advanced machine learning techniques"
+    },
+    {
+        "query": "version control with Git and GitHub",
+        "explanation": "Searching for resources on source code management"
+    },
+    {
+        "query": "APIs for software integration",
+        "explanation": "Looking for information on connecting software systems"
+    },
+    {
+        "query": "blockchain technology and cryptocurrency",
+        "explanation": "Exploring blockchain use cases and crypto applications"
+    },
+    {
+        "query": "React and frontend libraries",
+        "explanation": "Learning about building interactive web interfaces"
+    },
+    {
+        "query": "TensorFlow and machine learning frameworks",
+        "explanation": "Searching for ML frameworks and tools"
+    },
+    {
+        "query": "Kubernetes orchestration of containers",
+        "explanation": "Understanding container orchestration concepts"
+    },
+    {
+        "query": "edge computing and IoT devices",
+        "explanation": "Exploring computing close to data sources"
+    },
+    {
+        "query": "quantum computing principles and applications",
+        "explanation": "Learning about emerging computational paradigms"
+    }
+ ]
+
     
     for query_info in queries:
         print(f"\n🎯 {query_info['explanation']}")
@@ -160,19 +247,51 @@ def demo_cross_domain_search():
     queries = [
         {
             "query": "innovation and new technologies",
-            "description": "Innovation across all domains"
+            "description": "Exploring innovation across all domains"
         },
         {
             "query": "analysis and data patterns",
-            "description": "Data analysis in different fields"
+            "description": "Finding data analysis insights in various fields"
         },
         {
             "query": "systems and processes",
-            "description": "Systems thinking across domains"
+            "description": "Understanding systems thinking across domains"
         },
         {
             "query": "energy and power",
-            "description": "Energy concepts in various contexts"
+            "description": "Exploring energy concepts in multiple contexts"
+        },
+        {
+            "query": "healthcare and medical advancements",
+            "description": "Discovering breakthroughs in health and medicine"
+        },
+        {
+            "query": "artistic expression and creativity",
+            "description": "Finding topics on arts, literature, and creativity"
+        },
+        {
+            "query": "financial planning and investment strategies",
+            "description": "Insights on finance, economics, and investments"
+        },
+        {
+            "query": "climate change and environmental sustainability",
+            "description": "Searching for information on environmental impact and sustainability"
+        },
+        {
+            "query": "artificial intelligence in business",
+            "description": "Applications of AI in corporate and business contexts"
+        },
+        {
+            "query": "emerging trends in technology",
+            "description": "Cutting-edge technology developments across domains"
+        },
+        {
+            "query": "nutrition, exercise, and wellness",
+            "description": "Health, fitness, and lifestyle topics"
+        },
+        {
+            "query": "digital media and design",
+            "description": "Topics in creative arts, media, and graphic design"
         }
     ]
     
@@ -198,66 +317,10 @@ def demo_cross_domain_search():
                 print(f"   [{result.score:.4f}] {result.text[:70]}...")
 
 
-def demo_similarity_comparison():
-    """Demonstrate how semantic similarity works vs keyword matching"""
-    print("\n\n🧠 SEMANTIC vs KEYWORD COMPARISON")
-    print("=" * 60)
-    
-    # Create simple engine
-    engine = SemanticSearchEngine(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        index_type="flat"
-    )
-    
-    # Sample documents
-    docs = [
-        "The dog is playing in the park with a ball.",
-        "A canine is running around the garden with a sphere.",
-        "Python programming language is excellent for data science.",
-        "The snake slithered through the grass quietly.",
-        "Machine learning algorithms process large datasets.",
-        "AI systems can learn from data automatically.",
-        "The car drove down the highway at high speed.",
-        "The automobile traveled on the freeway rapidly."
-    ]
-    
-    engine.add_documents(docs)
-    
-    # Test queries
-    test_cases = [
-        {
-            "query": "dog playing",
-            "expected_semantic": "Both 'dog' and 'canine' documents should match",
-            "expected_keyword": "Only 'dog' document would match"
-        },
-        {
-            "query": "artificial intelligence",
-            "expected_semantic": "Should find ML and AI documents",
-            "expected_keyword": "Would miss 'machine learning' documents"
-        },
-        {
-            "query": "vehicle transportation",
-            "expected_semantic": "Should find both 'car' and 'automobile'",
-            "expected_keyword": "Would miss both (no exact matches)"
-        }
-    ]
-    
-    for test in test_cases:
-        print(f"\n🔍 Query: '{test['query']}'")
-        print(f"Semantic Expected: {test['expected_semantic']}")
-        print(f"Keyword Expected: {test['expected_keyword']}")
-        print("Results:")
-        
-        results = engine.search(test["query"], k=3)
-        for i, result in enumerate(results, 1):
-            if result.score > 0.3:  # Only show relevant results
-                print(f"  {i}. [{result.score:.4f}] {result.text}")
-
-
-def demo_threshold_filtering():
-    """Demonstrate how similarity thresholds work"""
-    print("\n\n🎚️  SIMILARITY THRESHOLD DEMO")
-    print("=" * 60)
+def demo_similarity_comparison_enhanced():
+    """Demonstrate semantic similarity vs keyword matching with more documents and queries"""
+    print("\n\n🧠 SEMANTIC vs KEYWORD COMPARISON - ENHANCED")
+    print("=" * 70)
     
     # Create engine
     engine = SemanticSearchEngine(
@@ -265,41 +328,167 @@ def demo_threshold_filtering():
         index_type="flat"
     )
     
-    # Mixed relevance documents
+    # Sample documents across multiple domains
     docs = [
-        "Deep learning neural networks for image recognition",  # Highly relevant
-        "Machine learning algorithms for data analysis",       # Relevant
-        "Statistical methods for scientific research",         # Somewhat relevant
-        "Database design and optimization techniques",         # Less relevant
-        "Cooking recipes for Italian pasta dishes",           # Not relevant
-        "Travel destinations in Southeast Asia",               # Not relevant
+        # Animals
+        "The dog is playing in the park with a ball.",
+        "A canine is running around the garden with a sphere.",
+        "The snake slithered through the grass quietly.",
+        "Cats are agile and love climbing trees.",
+        "A wolf howled at the moon in the forest.",
+        
+        # Vehicles
+        "The car drove down the highway at high speed.",
+        "The automobile traveled on the freeway rapidly.",
+        "Bicycles are eco-friendly and promote fitness.",
+        "Trains connect cities efficiently and quickly.",
+        
+        # Technology & AI
+        "Python programming language is excellent for data science.",
+        "Machine learning algorithms process large datasets.",
+        "AI systems can learn from data automatically.",
+        "Deep learning neural networks improve computer vision.",
+        "Blockchain technology ensures secure transactions.",
+        
+        # Health & Science
+        "Exercise improves physical fitness and strengthens muscles.",
+        "Nutrition is essential for maintaining good health.",
+        "Vaccines protect the body from infectious diseases.",
+        "Climate change impacts global weather patterns.",
+        "Photosynthesis converts sunlight into chemical energy in plants."
     ]
     
     engine.add_documents(docs)
     
-    query = "artificial intelligence and deep learning"
-    thresholds = [0.0, 0.3, 0.5, 0.7]
+    # Test queries with expected semantic vs keyword matching
+    test_cases = [
+        {
+            "query": "dog and canine activity",
+            "expected_semantic": "Both 'dog' and 'canine' documents should match",
+            "expected_keyword": "Only 'dog' document would match"
+        },
+        {
+            "query": "machine learning and AI",
+            "expected_semantic": "Should find ML and AI related documents",
+            "expected_keyword": "Might miss 'machine learning' or 'deep learning' documents"
+        },
+        {
+            "query": "automobile or car transport",
+            "expected_semantic": "Should match both 'car' and 'automobile' documents",
+            "expected_keyword": "Would miss 'automobile' if only 'car' keyword searched"
+        },
+        {
+            "query": "exercise and fitness",
+            "expected_semantic": "Should find documents on health and exercise",
+            "expected_keyword": "Only exact matches like 'exercise' would appear"
+        },
+        {
+            "query": "photosynthesis and plant energy",
+            "expected_semantic": "Should find plant biology and photosynthesis docs",
+            "expected_keyword": "May fail if keywords do not exactly match"
+        },
+        {
+            "query": "secure online transactions",
+            "expected_semantic": "Should find blockchain and cybersecurity related docs",
+            "expected_keyword": "Would fail if 'blockchain' keyword not used"
+        },
+        {
+            "query": "bicycle and eco transport",
+            "expected_semantic": "Should match documents about bicycles and green transport",
+            "expected_keyword": "May not match unless exact word 'bicycle' used"
+        }
+    ]
     
-    print(f"Query: '{query}'")
-    print("\nResults with different similarity thresholds:")
-    
-    for threshold in thresholds:
-        print(f"\n🎯 Threshold: {threshold}")
-        print("-" * 30)
+    # Execute search and compare
+    for test in test_cases:
+        print(f"\n🔍 Query: '{test['query']}'")
+        print(f"Semantic Expected: {test['expected_semantic']}")
+        print(f"Keyword Expected: {test['expected_keyword']}")
+        print("Results:")
         
-        results = engine.search(query, k=10, threshold=threshold)
-        
+        results = engine.search(test["query"], k=5, threshold=0.3)
         if not results:
-            print("   No results above threshold")
+            print("  No results above threshold")
         else:
             for i, result in enumerate(results, 1):
-                print(f"   {i}. [{result.score:.4f}] {result.text[:50]}...")
+                print(f"  {i}. [{result.score:.4f}] {result.text}")
+    
+    print("\n✅ Semantic similarity allows finding meaningfully related documents even without exact keyword matches.")
 
 
-def demo_advanced_queries():
-    """Demonstrate complex and nuanced queries"""
-    print("\n\n🎯 ADVANCED QUERY EXAMPLES")
-    print("=" * 60)
+
+def demo_threshold_filtering_enhanced():
+    """Demonstrate how similarity thresholds work with multiple queries and domains"""
+    print("\n\n🎚️ SIMILARITY THRESHOLD DEMO - ENHANCED")
+    print("=" * 70)
+    
+    # Create engine
+    engine = SemanticSearchEngine(
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        index_type="flat"
+    )
+    
+    # Mixed relevance documents across domains
+    docs = [
+        # AI / Tech
+        "Deep learning neural networks for image recognition",  # Highly relevant
+        "Machine learning algorithms for data analysis",        # Relevant
+        "AI systems learn patterns automatically from data",    # Relevant
+        "TensorFlow framework for building AI applications",    # Somewhat relevant
+        "Database design and optimization techniques",          # Less relevant
+        "Cloud computing platforms and services",               # Less relevant
+        
+        # Health / Life
+        "Exercise improves physical fitness and overall health",  # Somewhat relevant
+        "Nutrition tips for maintaining a healthy lifestyle",    # Less relevant
+        "Vaccines help prevent infectious diseases",             # Less relevant
+        "Cooking recipes for Italian pasta dishes",              # Not relevant
+        
+        # Travel / Lifestyle
+        "Travel destinations in Southeast Asia",                 # Not relevant
+        "Bicycling is a sustainable form of transportation",     # Less relevant
+        "Photography tips for landscape photography",            # Not relevant
+        "Meditation techniques for mental well-being"            # Less relevant
+    ]
+    
+    engine.add_documents(docs)
+    
+    # Queries to test threshold effects
+    queries = [
+        "artificial intelligence and deep learning",
+        "health and fitness tips",
+        "sustainable transportation methods"
+    ]
+    
+    thresholds = [0.0, 0.3, 0.5, 0.7]
+    
+    for query in queries:
+        print(f"\n🔍 Query: '{query}'")
+        print("Results with different similarity thresholds:")
+        
+        for threshold in thresholds:
+            print(f"\n🎯 Threshold: {threshold}")
+            print("-" * 40)
+            
+            results = engine.search(query, k=10, threshold=threshold)
+            
+            if not results:
+                print("   No results above threshold")
+            else:
+                for i, result in enumerate(results, 1):
+                    # Show a bit more text for clarity
+                    snippet = result.text if len(result.text) <= 80 else result.text[:77] + "..."
+                    print(f"   {i}. [{result.score:.4f}] {snippet}")
+    
+    print("\n✅ Observation:")
+    print("• Lower thresholds return more results including less relevant ones.")
+    print("• Higher thresholds return fewer results, focusing on highly relevant documents.")
+
+
+def demo_advanced_queries_enhanced():
+    """Demonstrate complex and nuanced queries with enhanced coverage"""
+    print("\n\n🎯 ADVANCED QUERY EXAMPLES - ENHANCED")
+    print("=" * 70)
     
     # Create comprehensive dataset
     datasets = create_sample_datasets()
@@ -310,7 +499,7 @@ def demo_advanced_queries():
         all_docs.extend(docs)
         all_metadata.extend([{"domain": domain} for _ in docs])
     
-    # Use advanced model
+    # Use high-quality embedding model
     engine = SemanticSearchEngine(
         model_name="sentence-transformers/all-mpnet-base-v2",
         index_type="flat"
@@ -318,90 +507,125 @@ def demo_advanced_queries():
     
     engine.add_documents(all_docs, metadata=all_metadata)
     
-    # Advanced query scenarios
+    # Advanced query scenarios with explanations
     advanced_queries = [
         {
             "query": "How to automate repetitive tasks efficiently?",
-            "description": "Question-based query about automation"
+            "description": "Automation and workflow optimization"
         },
         {
             "query": "scalable solutions for growing businesses",
-            "description": "Business growth and scalability"
+            "description": "Business growth, scalability, and efficiency"
         },
         {
             "query": "environmental impact of technology",
-            "description": "Intersection of tech and environment"
+            "description": "Sustainable technology and climate effects"
         },
         {
             "query": "learning from data without human supervision",
-            "description": "Unsupervised learning concepts"
+            "description": "Unsupervised learning and AI"
         },
         {
             "query": "protecting sensitive information from hackers",
-            "description": "Cybersecurity and data protection"
+            "description": "Cybersecurity, data protection, and encryption"
+        },
+        {
+            "query": "latest trends in renewable energy and climate change",
+            "description": "Energy sector and environmental impact"
+        },
+        {
+            "query": "creative ways to express emotions in art",
+            "description": "Arts, literature, and emotional expression"
+        },
+        {
+            "query": "emerging programming languages for system-level development",
+            "description": "Tech innovation and programming trends"
+        },
+        {
+            "query": "methods to improve mental health and well-being",
+            "description": "Healthcare and psychological wellness"
+        },
+        {
+            "query": "strategies for effective project management",
+            "description": "Business productivity and project planning"
         }
     ]
     
     for query_info in advanced_queries:
         print(f"\n💡 {query_info['description']}")
         print(f"Query: '{query_info['query']}'")
-        print("-" * 50)
+        print("-" * 60)
         
-        results = engine.search(query_info["query"], k=3, threshold=0.4)
+        results = engine.search(query_info["query"], k=5, threshold=0.4)  # Top 5 results
         
         if not results:
             print("   No highly relevant results found")
         else:
             for i, result in enumerate(results, 1):
-                domain = result.metadata["domain"]
-                print(f"   {i}. [{result.score:.4f}] ({domain}) {result.text[:60]}...")
+                domain = result.metadata.get("domain", "N/A")
+                snippet = result.text if len(result.text) <= 80 else result.text[:77] + "..."
+                print(f"   {i}. [{result.score:.4f}] ({domain}) {snippet}")
 
 
-def save_sample_search_results():
-    """Save sample search results for analysis"""
-    print("\n\n💾 SAVING SAMPLE RESULTS")
-    print("=" * 60)
+def save_sample_search_results_enhanced():
+    """Save enhanced sample search results across domains for analysis"""
+    print("\n\n💾 SAVING ENHANCED SAMPLE RESULTS")
+    print("=" * 70)
     
-    # Create engine and add data
+    # Create engine and add all domain data
     engine = SemanticSearchEngine(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        model_name="sentence-transformers/all-mpnet-base-v2",
         index_type="flat"
     )
     
     datasets = create_sample_datasets()
-    tech_docs = datasets["technology"]
-    metadata = [{"category": "technology", "doc_id": i} for i in range(len(tech_docs))]
-    engine.add_documents(tech_docs, metadata=metadata)
+    all_docs = []
+    all_metadata = []
     
-    # Sample queries and save results
+    for domain, docs in datasets.items():
+        all_docs.extend(docs)
+        all_metadata.extend([{"domain": domain, "doc_id": i} for i, _ in enumerate(docs)])
+    
+    engine.add_documents(all_docs, metadata=all_metadata)
+    
+    # Enhanced sample queries with explanations
     sample_queries = [
-        "machine learning and AI",
-        "web development frameworks",
-        "cloud computing platforms",
-        "database management",
-        "cybersecurity protection"
+        {"query": "machine learning and AI", "description": "Artificial intelligence and ML concepts"},
+        {"query": "web development frameworks", "description": "Frontend and backend technologies"},
+        {"query": "cloud computing platforms", "description": "Cloud infrastructure and services"},
+        {"query": "database management", "description": "Data storage and retrieval techniques"},
+        {"query": "cybersecurity protection", "description": "Security measures for digital systems"},
+        {"query": "renewable energy and climate change", "description": "Sustainability and energy"},
+        {"query": "mental health and well-being", "description": "Healthcare and psychology"},
+        {"query": "creative art and expression", "description": "Arts, literature, and creativity"},
+        {"query": "business growth and scalability", "description": "Business development strategies"},
+        {"query": "emerging programming languages", "description": "New technologies in software development"}
     ]
     
     all_results = {}
     
-    for query in sample_queries:
+    for query_info in sample_queries:
+        query = query_info["query"]
+        print(f"\nProcessing query: '{query}' ({query_info['description']})")
+        
         results = engine.search(query, k=5)
         all_results[query] = [
             {
                 "text": r.text,
                 "score": float(r.score),
                 "index": r.index,
-                "metadata": r.metadata
+                "domain": r.metadata.get("domain", r.metadata.get("category", "N/A"))
             }
             for r in results
         ]
     
-    # Save to file
-    with open("sample_search_results.json", "w", encoding="utf-8") as f:
+    # Save results to JSON file
+    with open("enhanced_sample_search_results.json", "w", encoding="utf-8") as f:
         json.dump(all_results, f, indent=2, ensure_ascii=False)
     
-    print("✅ Sample search results saved to 'sample_search_results.json'")
-    print("📊 Contains results for 5 different queries with similarity scores")
+    print("\n✅ Enhanced sample search results saved to 'enhanced_sample_search_results.json'")
+    print("📊 Contains results for 10 different queries with domain info and similarity scores")
+
 
 
 def main():
@@ -415,10 +639,10 @@ def main():
         # Run all demonstrations
         demo_basic_semantic_search()
         demo_cross_domain_search()
-        demo_similarity_comparison()
-        demo_threshold_filtering()
-        demo_advanced_queries()
-        save_sample_search_results()
+        demo_similarity_comparison_enhanced()
+        demo_threshold_filtering_enhanced()
+        demo_advanced_queries_enhanced()
+        save_sample_search_results_enhanced()
         
         print("\n\n🎉 ALL DEMOS COMPLETED SUCCESSFULLY!")
         print("\nKey Takeaways:")
