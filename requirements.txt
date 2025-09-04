@@ -1,0 +1,13 @@
+# Core dependencies for the semantic search engine
+torch>=1.9.0
+transformers>=4.20.0
+faiss-cpu>=1.7.2  # Use faiss-gpu if you have CUDA support
+numpy>=1.21.0
+tqdm>=4.62.0
+sentence-transformers>=2.2.0
+
+# Optional dependencies for enhanced functionality
+datasets>=2.0.0  # For loading Hugging Face datasets
+scikit-learn>=1.0.0  # For evaluation metrics
+matplotlib>=3.5.0  # For visualization
+seaborn>=0.11.0  # For better plots
